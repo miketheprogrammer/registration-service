@@ -1,0 +1,25 @@
+{
+  "name": "registration-service",
+  "version": "1.0.0",
+  "description": "Thalassa | Consul Docker service for registering peers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Minerapp/registration-service.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Minerapp/registration-service/issues"
+  },
+  "homepage": "https://github.com/Minerapp/registration-service#readme",
+  "dependencies": {
+    "async": "^1.5.0",
+    "dockerode": "^2.2.6",
+    "consul": "^0.20.0",
+    "flat": "^1.6.0"
+  }
+}
