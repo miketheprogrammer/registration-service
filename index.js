@@ -3,10 +3,16 @@ var docker 	    = new Docker();
 var consul      = require('consul')();
 var async 	    = require('async');
 
-var tick = process.env.TICK || 10000;
+var tick = process.env.TICK || 200;
 var registrations = {}
 
+var running = false;
 setInterval(function () {
+  if (running === true) {
+    console.warn('Already running, waiting for next tick');
+    return;
+  }
+  running = true;
   docker.listContainers(function (err, containers) {
     async.map(containers, register, function (err, res) {
       console.log('Reaping out of date registrations');
@@ -25,6 +31,7 @@ setInterval(function () {
          })
         }
       })
+      running = false;
     })
     
   })
