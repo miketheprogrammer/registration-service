@@ -16,7 +16,7 @@ setInterval(function () {
         if (res.indexOf(id) === -1) {
       	  console.log('Reaping', id);
           var container = registrations[id];
-          consul.agent.service.deregister({name: container.Labels['com.application.name'], id: container.Id, port: container.Ports[0].PublicPort}, function(err) {
+          consul.agent.service.deregister(container.Id, function(err) {
             if (err) {
               console.warn(err, err.stack);
             }
